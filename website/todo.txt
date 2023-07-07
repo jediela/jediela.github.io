@@ -1,0 +1,3 @@
+Create sticky bar
+Fix background gif
+Create hover effect for connect with me form
