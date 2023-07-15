@@ -2162,9 +2162,9 @@ input, select, textarea {
 		input[type="button"].large,
 		button.large,
 		.button.large {
-			font-size: 0.9rem;
-			height: 3.5rem;
-			line-height: 3.5rem;
+			font-size: 2rem;
+			height: 5rem;
+			line-height: 5rem;
 			padding: 0 2.75rem;
 		}
 
