@@ -1,1 +1,1 @@
-jediela.github.io
+https://jediela.github.io/
