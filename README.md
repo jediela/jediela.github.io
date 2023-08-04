@@ -1,1 +1,1 @@
-Personal website/portfolio. https://jediela.github.io/
+Personal website/portfolio: https://jediela.github.io/
