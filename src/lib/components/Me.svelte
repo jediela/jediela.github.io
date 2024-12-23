@@ -1,8 +1,8 @@
 <script>
 	import BlurIn from './BlurIn.svelte';
 	import { Home, PencilLine, TvMinimalPlay, Sun, Moon } from 'lucide-svelte';
-	import GithubSvg from '$lib/svg/web/github.svg';
-	import LinkedInSvg from '$lib/svg/web/linkedin.svg';
+	import GithubSvg from '$lib/svg/github.svg';
+	import LinkedInSvg from '$lib/svg/linkedin.svg';
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import Dock from './Dock.svelte';
@@ -17,7 +17,11 @@
 		],
 		contact: [
 			{ label: 'Github', icon: GithubSvg, href: 'https://github.com/jediela' },
-			{ label: 'LinkedIn', icon: LinkedInSvg, href: 'https://www.linkedin.com/in/jediel-antalan/' }
+			{
+				label: 'LinkedIn',
+				icon: LinkedInSvg,
+				href: 'https://www.linkedin.com/in/jediel-antalan/'
+			}
 		]
 	};
 
@@ -35,22 +39,24 @@
 >
 	<BlurIn
 		class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10 md:text-8xl"
-		word="Hi! I'm Jed"
+		word="Hi! I'm Jed 👋"
 	/>
-	<div>
+	<div class="sticky top-0 flex justify-center bg-background">
 		<Dock direction="middle" class="relative" let:mouseX let:distance let:magnification>
 			{#each navs.navbar as item}
 				<DockIcon {mouseX} {magnification} {distance}>
 					<Tooltip.Root>
-						<Tooltip.Trigger
-							class="mx-0 rounded-full p-3 transition-all duration-200 hover:bg-zinc-900/80"
-						>
-							<svelte:component this={item.icon} size={22} strokeWidth={1.2} />
-						</Tooltip.Trigger>
-						<Tooltip.Content sideOffset={8}>
-							<p>{item.label}</p>
-						</Tooltip.Content>
-					</Tooltip.Root>
+						<a href={item.href} class="no-underline">
+							<Tooltip.Trigger
+								class="mx-0 rounded-full p-3 transition-all duration-200 hover:bg-zinc-900/80"
+							>
+								<svelte:component this={item.icon} size={22} strokeWidth={1.2} />
+							</Tooltip.Trigger>
+							<Tooltip.Content sideOffset={8}>
+								<p>{item.label}</p>
+							</Tooltip.Content>
+						</a></Tooltip.Root
+					>
 				</DockIcon>
 			{/each}
 			<Separator orientation="vertical" class="h-full w-[0.6px]" />
