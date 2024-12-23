@@ -1,5 +1,16 @@
+<script>
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import Me from '$lib/components/Me.svelte';
+</script>
 
-<div class="bg-blue-500 text-white p-4">
-    <h1>Welcome to my website!</h1>
-    <p>Made with Svelte</p>
-</div>
+<Header />
+
+<Me />
+
+<main class="bg-blue-500 p-4 text-white">
+	<h1>Welcome to my website!</h1>
+	<p>Made with Svelte!</p>
+</main>
+
+<Footer />
