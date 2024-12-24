@@ -1,5 +1,4 @@
 <script>
-	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Me from '$lib/components/Me.svelte';
 	import Experience from '$lib/components/Experience.svelte';
@@ -8,9 +7,13 @@
 
 <Me />
 
-<main class="bg-blue-500 p-4 text-white">
-	<Experience />
-	<Projects />
+<main class="flex flex-col items-center justify-center bg-blue-500 p-8 text-white">
+	<div id="experience">
+		<Experience />
+	</div>
+	<div id="projects">
+		<Projects />
+	</div>
 </main>
 
 <Footer />

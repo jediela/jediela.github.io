@@ -1,6 +1,6 @@
 <script>
 	import BlurIn from './BlurIn.svelte';
-	import { Home, PencilLine, TvMinimalPlay, Sun, Moon } from 'lucide-svelte';
+	import { Home, NotepadTextIcon, CodeIcon, WorkflowIcon, Sun, Moon } from 'lucide-svelte';
 	import GithubSvg from '$lib/svg/github.svg';
 	import LinkedInSvg from '$lib/svg/linkedin.svg';
 	import * as Tooltip from '$lib/components/ui/tooltip';
@@ -12,8 +12,9 @@
 	let navs = {
 		navbar: [
 			{ label: 'Home', icon: Home, href: '#' },
-			{ label: 'Blog', icon: PencilLine, href: '#' },
-			{ label: 'Developer', icon: TvMinimalPlay, href: '#' }
+			{ label: 'My Resume', icon: NotepadTextIcon, href: '#' },
+			{ label: 'Experience', icon: WorkflowIcon, href: '#experience' },
+			{ label: 'Projects', icon: CodeIcon, href: '#projects' }
 		],
 		contact: [
 			{ label: 'Github', icon: GithubSvg, href: 'https://github.com/jediela' },
@@ -32,6 +33,20 @@
 			setMode('light');
 		}
 	}
+
+	// @ts-ignore
+	function handleAnchorClick(event) {
+		event.preventDefault();
+		const link = event.currentTarget;
+		const anchorId = new URL(link.href).hash.replace('#', '');
+		const anchor = document.getElementById(anchorId);
+		if (anchor) {
+			window.scrollTo({
+				top: anchor.offsetTop,
+				behavior: 'smooth'
+			});
+		}
+	}
 </script>
 
 <div
@@ -46,7 +61,7 @@
 			{#each navs.navbar as item}
 				<DockIcon {mouseX} {magnification} {distance}>
 					<Tooltip.Root>
-						<a href={item.href} class="no-underline">
+						<a href={item.href} on:click={handleAnchorClick} class="navbar-link">
 							<Tooltip.Trigger
 								class="mx-0 rounded-full p-3 transition-all duration-200 hover:bg-zinc-900/80"
 							>

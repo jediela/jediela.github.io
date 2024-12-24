@@ -40,12 +40,13 @@
 			imageUrl: weather,
 			title: 'Weather Tracker',
 			description:
-				'An interactive website to explore real-time weather conditions for any location worldwide. Built using vanilla HTML, JavaScript, and CSS.',
+				'An interactive website to explore real-time weather conditions for any location worldwide. Built with vanilla HTML, JavaScript, and CSS.',
 			buttonUrl: 'https://github.com/jediela/Weather-app'
 		}
 	];
 </script>
 
+<h1 class="mb-8 text-center text-5xl font-semibold text-gray-800 dark:text-white">Projects</h1>
 <div class="grid grid-cols-1 gap-x-3 gap-y-5 py-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 	{#each projects as project}
 		<Motion animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
