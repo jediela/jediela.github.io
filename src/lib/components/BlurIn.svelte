@@ -3,6 +3,7 @@
 	import { Motion } from 'svelte-motion';
 
 	export let word: string = 'Blur In';
+	export let name: string = 'Jed Antalan';
 	export let variant: {
 		hidden: { filter: string; opacity: number };
 		visible: { filter: string; opacity: number };
@@ -36,5 +37,8 @@
 		use:motion
 	>
 		{word}
+		<span class="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">
+			{name}
+		</span>
 	</h1>
 </Motion>
