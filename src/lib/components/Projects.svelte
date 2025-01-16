@@ -2,7 +2,7 @@
 	import Card from './Card.svelte';
 	import { Motion } from 'svelte-motion';
 	import scriptoriumLogo from '../images/scriptorium.jpg';
-	import svelte from '../images/svelte.png'
+	import svelte from '../images/svelte.png';
 	import android from '../images/android.webp';
 	import python from '../images/python.png';
 	import weather from '../images/weather.jpg';
