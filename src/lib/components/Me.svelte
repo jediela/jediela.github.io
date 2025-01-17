@@ -1,6 +1,6 @@
 <script>
 	import BlurIn from './BlurIn.svelte';
-	import { Home, NotepadTextIcon, CodeIcon, Briefcase, Sun, Moon, } from 'lucide-svelte';
+	import { Home, NotepadTextIcon, CodeIcon, Briefcase, Sun, Moon, School } from 'lucide-svelte';
 	import GithubSvg from '$lib/svg/github.svg';
 	import GitHubDarkSvg from '$lib/svg/github-dark.svg';
 	import LinkedInSvg from '$lib/svg/linkedin.svg';
@@ -21,11 +21,22 @@
 				target: '_blank'
 			},
 			{ label: 'Experience', icon: Briefcase, href: '#experience' },
-			{ label: 'Projects', icon: CodeIcon, href: '#projects' }
+			{ label: 'Projects', icon: CodeIcon, href: '#projects' },
+			{ label: 'Skills & Education', icon: School, href: '#skills' }
 		],
 		contact: [
-			{ label: 'Github', icon: GithubSvg, darkIcon: GitHubDarkSvg, href: 'https://github.com/jediela' },
-			{ label: 'LinkedIn', icon: LinkedInSvg, darkIcon: LinkedInDarkSvg, href: 'https://www.linkedin.com/in/jediel-antalan/' }
+			{
+				label: 'Github',
+				icon: GithubSvg,
+				darkIcon: GitHubDarkSvg,
+				href: 'https://github.com/jediela'
+			},
+			{
+				label: 'LinkedIn',
+				icon: LinkedInSvg,
+				darkIcon: LinkedInDarkSvg,
+				href: 'https://www.linkedin.com/in/jediel-antalan/'
+			}
 		]
 	};
 
@@ -88,25 +99,25 @@
 			{/each}
 			<Separator orientation="vertical" class="h-full w-[0.6px]" />
 			{#each navs.contact as item}
-			<DockIcon {mouseX} {magnification} {distance}>
-				<Tooltip.Root>
-					<a href={item.href} class="no-underline" target="_blank">
-						<Tooltip.Trigger
-							class="rounded-full transition-all duration-200 hover:bg-zinc-900/80"
-						>
-							<img
-								src={$mode === 'light' ? item.icon : item.darkIcon}
-								alt={item.label}
-								class="m-3 h-5 w-5"
-							/>
-						</Tooltip.Trigger>
-						<Tooltip.Content sideOffset={9}>
-							<p>{item.label}</p>
-						</Tooltip.Content>
-					</a>
-				</Tooltip.Root>
-			</DockIcon>
-		{/each}
+				<DockIcon {mouseX} {magnification} {distance}>
+					<Tooltip.Root>
+						<a href={item.href} class="no-underline" target="_blank">
+							<Tooltip.Trigger
+								class="rounded-full transition-all duration-200 hover:bg-zinc-900/80"
+							>
+								<img
+									src={$mode === 'light' ? item.icon : item.darkIcon}
+									alt={item.label}
+									class="m-3 h-5 w-5"
+								/>
+							</Tooltip.Trigger>
+							<Tooltip.Content sideOffset={9}>
+								<p>{item.label}</p>
+							</Tooltip.Content>
+						</a>
+					</Tooltip.Root>
+				</DockIcon>
+			{/each}
 			<Separator orientation="vertical" class="h-full w-[0.6px]" />
 			<DockIcon {mouseX} {magnification} {distance}>
 				<Tooltip.Root>

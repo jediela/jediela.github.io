@@ -2,7 +2,7 @@
 	import Card from './Card.svelte';
 	import { Motion } from 'svelte-motion';
 	import scriptoriumLogo from '../images/scriptorium.jpg';
-	import svelte from '../images/svelte.png'
+	import svelte from '../images/svelte.png';
 	import android from '../images/android.webp';
 	import python from '../images/python.png';
 	import weather from '../images/weather.jpg';
@@ -55,7 +55,7 @@
 </script>
 
 <h1 class="mb-8 text-center text-5xl font-semibold text-gray-800 dark:text-white">Projects</h1>
-<div class="grid grid-cols-1 gap-x-5 gap-y-5 py-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+<div class="grid grid-cols-1 gap-x-6 gap-y-5 py-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
 	{#each projects as project}
 		<Motion animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
 			<Card
