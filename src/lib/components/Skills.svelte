@@ -13,7 +13,11 @@
 		'TailwindCSS',
 		'JavaScript/TypeScript',
 		'Python',
-		'Java'
+		'Java',
+		'FastAPI',
+		'HTML/CSS',
+		'Assembly',
+		'PostgreSQL'
 	];
 	let education = {
 		institution: 'University of Toronto',

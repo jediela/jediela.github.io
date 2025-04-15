@@ -7,8 +7,24 @@
 	import python from '../images/python.png';
 	import weather from '../images/weather.jpg';
 	import platformer from '../images/platformer.jpg';
+	import snfs from '../images/snfs.avif';
+	import jobba from '../images/jobba.png';
 
 	const projects = [
+		{
+			imageUrl: jobba,
+			title: 'jobba.help',
+			description:
+				'Open-source application that automatically tracks your job applications by integrating with your inbox. Built with FastAPI and Next.js.',
+			buttonUrl: 'https://www.jobba.help/'
+		},
+		{
+			imageUrl: snfs,
+			title: 'SNFS',
+			description:
+				'A web app that lets users create and manage investment portfolios and stock lists, view statistics, and share them with friends. Built with Flask and Next.js.',
+			buttonUrl: 'https://github.com/jediela/SNFS'
+		},
 		{
 			imageUrl: scriptoriumLogo,
 			title: 'Scriptorium',
@@ -55,7 +71,7 @@
 </script>
 
 <h1 class="mb-8 text-center text-5xl font-semibold text-gray-800 dark:text-white">Projects</h1>
-<div class="grid grid-cols-1 gap-x-6 gap-y-5 py-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+<div class="grid grid-cols-1 gap-x-6 gap-y-5 py-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
 	{#each projects as project}
 		<Motion animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
 			<Card
