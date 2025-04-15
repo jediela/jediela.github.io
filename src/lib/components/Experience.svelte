@@ -1,8 +1,15 @@
 <script>
 	let experiences = [
 		{
+			title: 'DevOps Engineer',
+			company: 'Royal Bank of Canada, Global Asset Management (RBC GAM)',
+			duration: 'May 2025 - Aug 2025',
+			description: 'Helios on Actions.',
+			skills: ['GitHub Actions', 'Jenkins']
+		},
+		{
 			title: 'Software Developer',
-			company: 'Royal Bank of Canada (RBC)',
+			company: 'Royal Bank of Canada, Global Asset Management (RBC GAM)',
 			duration: 'Sept 2024 - Dec 2024',
 			description:
 				'Worked on migrating application pipelines from Jenkins to GitHub Actions and updating front-end applications.',
@@ -18,26 +25,29 @@
 	];
 </script>
 
-<h1 class="mb-8 mt-10 text-center text-5xl font-semibold text-gray-800 dark:text-gray-200">
+<h1 class="mb-12 mt-10 text-center text-5xl font-bold text-gray-800 dark:text-gray-200">
 	Work Experience
 </h1>
+
 <div class="mx-auto max-w-6xl px-4">
-	<div class="grid grid-cols-1 gap-8 sm:grid-cols-1 lg:grid-cols-2">
+	<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 		{#each experiences as experience}
-			<div
-				class="transform rounded-lg bg-white p-6 shadow-lg transition-all hover:scale-105 hover:shadow-xl dark:bg-gray-800"
-			>
-				<h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">{experience.title}</h3>
+			<div class="rounded-md border-l-4 border-blue-500 bg-white p-6 shadow-md dark:bg-gray-900">
+				<h3 class="text-xl font-semibold text-gray-800 dark:text-white">{experience.title}</h3>
 				<p class="text-sm text-gray-500 dark:text-gray-400">{experience.company}</p>
-				<p class="mb-4 text-sm text-gray-400 dark:text-gray-500">{experience.duration}</p>
-				<p class="mb-4 text-gray-700 dark:text-gray-300">{experience.description}</p>
-				<div>
-					<p class="font-semibold text-gray-600 dark:text-gray-400">Skills:</p>
-					<ul class="list-disc pl-6 text-gray-700 dark:text-gray-300">
+				<p class="mb-2 text-sm text-gray-400 dark:text-gray-500">{experience.duration}</p>
+				<p class="text-gray-700 dark:text-gray-300">{experience.description}</p>
+				<div class="mt-4">
+					<p class="mb-1 font-semibold text-gray-700 dark:text-gray-400">Skills</p>
+					<div class="flex flex-wrap gap-2">
 						{#each experience.skills as skill}
-							<li>{skill}</li>
+							<span
+								class="rounded bg-gray-100 px-2 py-1 text-sm text-gray-800 dark:bg-gray-700 dark:text-gray-200"
+							>
+								{skill}
+							</span>
 						{/each}
-					</ul>
+					</div>
 				</div>
 			</div>
 		{/each}
