@@ -1,5 +1,9 @@
 name: Portfolio CI/CD Pipeline
 
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
 on:
   push:
     branches:
@@ -34,11 +38,49 @@ jobs:
           name: node-build-output
           path: 'build/'
 
-  deploy:
+  deploy-vercel-preview:
+    name: Deploy to Vercel Preview Environment
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/dev'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Project Artifacts to Vercel (Preview)
+        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+
+  deploy-vercel-prod:
+    name: Deploy to Vercel Production Environment
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        
+      - name: Deploy Project Artifacts to Vercel (Production)
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+  deploy-github-pages:
     name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
-
     if: github.ref == 'refs/heads/main'
 
     permissions:
@@ -55,3 +97,33 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           artifact_name: node-build-output
+
+  deployment-summary:
+    name: Deployment Summary
+    needs:
+      - deploy-vercel-preview
+      - deploy-vercel-prod
+      - deploy-github-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Deployment Summary
+        run: |
+          echo "### 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
+
+          if [[ "${{ needs.deploy-vercel-preview.result }}" == "success" ]]; then
+            echo "✅ Vercel Preview: **Deployed**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Vercel Preview: **Skipped or Failed**" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [[ "${{ needs.deploy-vercel-prod.result }}" == "success" ]]; then
+            echo "✅ Vercel Production: **Deployed**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Vercel Production: **Skipped or Failed**" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [[ "${{ needs.deploy-github-pages.result }}" == "success" ]]; then
+            echo "✅ GitHub Pages: **Deployed**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ GitHub Pages: **Skipped or Failed**" >> $GITHUB_STEP_SUMMARY
+          fi
