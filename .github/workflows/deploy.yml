@@ -71,7 +71,7 @@ jobs:
           echo '{ "outputDirectory": "build" }' > vercel.json
     
       - name: Deploy to Vercel (Preview)
-        run: vercel --cwd build/ --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy build/ --token=${{ secrets.VERCEL_TOKEN }}
 
   deploy-vercel-prod:
     name: Deploy to Vercel (Production)
