@@ -63,11 +63,19 @@ jobs:
           name: node-build-output
           path: build/
 
+      - name: Move contents to root
+        run: mv build/* .
+
+      - name: Create vercel.json
+        run: |
+          echo '{ "framework": null, "outputDirectory": "build" }' > vercel.json
+
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
-    
+
       - name: Deploy to Vercel (Preview)
-        run: vercel deploy build/ --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel --token=${{ secrets.VERCEL_TOKEN }}
+
       
 
   deploy-vercel-prod:
