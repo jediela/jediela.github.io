@@ -1,15 +1,17 @@
-# Workflow to deploy to GitHub Pages
-
-name: Deploy to GitHub Pages
+name: Portfolio CI/CD Pipeline
 
 on:
   push:
     branches:
-      - 'main'
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
-    name: Build App
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,9 +37,11 @@ jobs:
           path: 'build/'
 
   deploy:
-    name: Deploy App
+    name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
+
+    if: github.ref == 'refs/heads/main'
 
     permissions:
       pages: write

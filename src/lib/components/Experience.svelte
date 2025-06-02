@@ -36,6 +36,7 @@
 				<h3 class="text-xl font-semibold text-gray-800 dark:text-white">{experience.title}</h3>
 				<p class="text-sm text-gray-500 dark:text-gray-400">{experience.company}</p>
 				<p class="mb-2 text-sm text-gray-400 dark:text-gray-500">{experience.duration}</p>
+
 				<p class="text-gray-700 dark:text-gray-300">{experience.description}</p>
 				<div class="mt-4">
 					<p class="mb-1 font-semibold text-gray-700 dark:text-gray-400">Skills</p>
