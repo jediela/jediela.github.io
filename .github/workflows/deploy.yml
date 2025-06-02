@@ -65,13 +65,10 @@ jobs:
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
-
-      - name: Create Vercel Config
-        run: |
-          echo '{ "outputDirectory": "build" }' > vercel.json
     
       - name: Deploy to Vercel (Preview)
-        run: vercel deploy build/ --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy build/ --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+      
 
   deploy-vercel-prod:
     name: Deploy to Vercel (Production)
