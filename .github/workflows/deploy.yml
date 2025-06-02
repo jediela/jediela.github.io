@@ -39,17 +39,11 @@ jobs:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: npm run build
 
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
           name: node-build-output
           path: build/
-
-      # - name: Upload for GitHub Pages
-      #   uses: actions/upload-pages-artifact@v3
-      #   with:
-      #     name: node-build-output
-      #     path: build/
 
   deploy-vercel-preview:
     name: Deploy to Vercel (Preview)
@@ -70,6 +64,11 @@ jobs:
 
       - name: Deploy to Vercel (Preview)
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+      
+      - name: ✅ Append Success to Summary
+        if: success()
+        run: |
+          echo "✅ Vercel Preview: **Deployed**" >> $GITHUB_STEP_SUMMARY
 
   deploy-vercel-prod:
     name: Deploy to Vercel (Production)
@@ -111,33 +110,3 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           artifact_name: node-build-output
-
-  deployment-summary:
-    name: Deployment Summary
-    needs:
-      - deploy-vercel-preview
-      - deploy-vercel-prod
-      - deploy-github-pages
-    runs-on: ubuntu-latest
-    steps:
-      - name: Generate Deployment Summary
-        run: |
-          echo "### 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
-
-          if [[ "${{ needs.deploy-vercel-preview.result }}" == "success" ]]; then
-            echo "✅ Vercel Preview: **Deployed**" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "❌ Vercel Preview: **Skipped or Failed**" >> $GITHUB_STEP_SUMMARY
-          fi
-
-          if [[ "${{ needs.deploy-vercel-prod.result }}" == "success" ]]; then
-            echo "✅ Vercel Production: **Deployed**" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "❌ Vercel Production: **Skipped or Failed**" >> $GITHUB_STEP_SUMMARY
-          fi
-
-          if [[ "${{ needs.deploy-github-pages.result }}" == "success" ]]; then
-            echo "✅ GitHub Pages: **Deployed**" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "❌ GitHub Pages: **Skipped or Failed**" >> $GITHUB_STEP_SUMMARY
-          fi
