@@ -4,15 +4,15 @@
 			title: 'DevOps Engineer',
 			company: 'Royal Bank of Canada, Global Asset Management (RBC GAM)',
 			duration: 'May 2025 - Aug 2025',
-			description: 'Helios on Actions.',
-			skills: ['GitHub Actions', 'Jenkins']
+			description: 'Managing and Optimizing CI/CD pipelines using GitHub Actions.',
+			skills: ['GitHub Actions', 'Kubernetes', 'OpenShift', 'Bash', 'Docker']
 		},
 		{
 			title: 'Software Developer',
 			company: 'Royal Bank of Canada, Global Asset Management (RBC GAM)',
 			duration: 'Sept 2024 - Dec 2024',
 			description:
-				'Worked on migrating application pipelines from Jenkins to GitHub Actions and updating front-end applications.',
+				'Migrated application pipelines from Jenkins to GitHub Actions and updated front-end applications.',
 			skills: ['GitHub Actions', 'Jenkins', 'Angular', 'Spring Boot']
 		},
 		{
@@ -43,7 +43,7 @@
 					<div class="flex flex-wrap gap-2">
 						{#each experience.skills as skill}
 							<span
-								class="rounded bg-gray-100 px-2 py-1 text-sm text-gray-800 dark:bg-gray-700 dark:text-gray-200"
+    class="rounded bg-gray-100 px-2 py-1 text-sm text-gray-800 transition-colors duration-200 cursor-pointer hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
 							>
 								{skill}
 							</span>
