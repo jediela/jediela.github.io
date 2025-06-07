@@ -22,14 +22,14 @@
 			imageUrl: snfs,
 			title: 'SNFS',
 			description:
-				'A web app that lets users create and manage investment portfolios and stock lists, view statistics, and share them with friends. Built with Flask and Next.js.',
+				'Web app that lets users create and manage investment portfolios and stock lists, view statistics, and share them with friends. Built with Flask and Next.js.',
 			buttonUrl: 'https://github.com/jediela/SNFS'
 		},
 		{
 			imageUrl: scriptoriumLogo,
 			title: 'Scriptorium',
 			description:
-				'An online platform to write, execute, and share code, featuring blogs, comments, and voting. Built with Next.js.',
+				'Online platform to write, execute, and share code, featuring blogs, comments, and voting. Built with Next.js.',
 			buttonUrl: 'https://github.com/jediela/scriptorium'
 		},
 		{
@@ -50,21 +50,21 @@
 			imageUrl: android,
 			title: 'ClickCraze',
 			description:
-				'A feature-rich Android shopping application designed for seamless user experience. Built with Java and integrated with Firebase.',
+				'Feature-rich Android shopping application designed for seamless user experience. Built with Java and integrated with Firebase.',
 			buttonUrl: 'https://github.com/jediela/CSB07_Project'
 		},
 		{
 			imageUrl: platformer,
 			title: 'GUP',
 			description:
-				'A single-level 2D platformer game featuring simple gameplay mechanics. Built with Assembly.',
+				'Single-level 2D platformer game featuring simple gameplay mechanics. Built with Assembly.',
 			buttonUrl: 'https://github.com/jediela/gup'
 		},
 		{
 			imageUrl: weather,
 			title: 'Weather Tracker',
 			description:
-				'An interactive website to explore real-time weather conditions for any location worldwide. Built with vanilla HTML, JavaScript, and CSS.',
+				'Interactive website to explore real-time weather conditions for any location worldwide. Built with vanilla HTML, JavaScript, and CSS.',
 			buttonUrl: 'https://github.com/jediela/Weather-app'
 		}
 	];
