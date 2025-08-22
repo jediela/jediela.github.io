@@ -1,5 +1,10 @@
 <script>
-	import Card from './Card.svelte';
+	// @ts-nocheck
+	import * as Card from '$lib/components/ui/card/index.ts';
+	import * as Carousel from '$lib/components/ui/carousel/index.ts';
+	import CardComponent from './Card.svelte';
+	import emblaCarouselSvelte from 'embla-carousel-svelte';
+	import Autoplay from 'embla-carousel-autoplay';
 	import { Motion } from 'svelte-motion';
 	import scriptoriumLogo from '../images/scriptorium.jpg';
 	import svelte from '../images/svelte.png';
@@ -8,15 +13,17 @@
 	import weather from '../images/weather.jpg';
 	import platformer from '../images/platformer.jpg';
 	import snfs from '../images/snfs.avif';
-	import jobba from '../images/jobba.png';
+	import jaja from '../images/jaja.svg';
+
+	const plugin = Autoplay({ delay: 2000, stopOnInteraction: true });
 
 	const projects = [
 		{
-			imageUrl: jobba,
-			title: 'jobba.help',
+			imageUrl: jaja,
+			title: 'Just a Job App',
 			description:
 				'Open-source application that automatically tracks your job applications by integrating with your inbox. Built with FastAPI and Next.js.',
-			buttonUrl: 'https://www.jobba.help/'
+			buttonUrl: 'https://www.justajob.app/'
 		},
 		{
 			imageUrl: snfs,
@@ -71,15 +78,57 @@
 </script>
 
 <h1 class="mb-8 text-center text-5xl font-semibold text-gray-800 dark:text-white">Projects</h1>
-<div class="grid grid-cols-1 gap-x-6 gap-y-5 py-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
-	{#each projects as project}
-		<Motion animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-			<Card
-				imageUrl={project.imageUrl}
-				title={project.title}
-				description={project.description}
-				buttonUrl={project.buttonUrl}
-			/>
-		</Motion>
-	{/each}
-</div>
+
+<!-- <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+		{#each projects as project, i}
+			<Motion
+				initial={{ opacity: 0, y: 30 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ delay: i * 0.1, duration: 0.5 }}
+			>
+				<div
+					class="transform rounded-2xl bg-white p-4 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-gray-800"
+				>
+					<Card
+						imageUrl={project.imageUrl}
+						title={project.title}
+						description={project.description}
+						buttonUrl={project.buttonUrl}
+					/>
+				</div>
+			</Motion>
+		{/each}
+	</div> -->
+
+<Carousel.Root
+	class="mx-auto w-full max-w-6xl"
+	opts={{
+		align: 'start',
+		loop: true
+	}}
+	plugins={[plugin]}
+	on:mouseenter={plugin.stop}
+	on:mouseleave={plugin.reset}
+>
+	<Carousel.Content class="px-1">
+		{#each projects as project, i}
+			<Carousel.Item class="basis-full md:basis-1/2 lg:basis-1/3">
+				<Motion
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ delay: i * 0.1, duration: 0.5 }}
+				>
+					<CardComponent
+						imageUrl={project.imageUrl}
+						title={project.title}
+						description={project.description}
+						buttonUrl={project.buttonUrl}
+					/>
+				</Motion>
+			</Carousel.Item>
+		{/each}
+	</Carousel.Content>
+
+	<Carousel.Previous />
+	<Carousel.Next />
+</Carousel.Root>
