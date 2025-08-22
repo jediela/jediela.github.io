@@ -118,12 +118,12 @@
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: i * 0.1, duration: 0.5 }}
 				>
-						<CardComponent
-							imageUrl={project.imageUrl}
-							title={project.title}
-							description={project.description}
-							buttonUrl={project.buttonUrl}
-						/>
+					<CardComponent
+						imageUrl={project.imageUrl}
+						title={project.title}
+						description={project.description}
+						buttonUrl={project.buttonUrl}
+					/>
 				</Motion>
 			</Carousel.Item>
 		{/each}

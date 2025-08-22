@@ -43,6 +43,7 @@
 		"class-variance-authority": "^0.7.1",
 		"embla-carousel-autoplay": "^8.6.0",
 		"mode-watcher": "^0.5.0",
-		"svelte-motion": "^0.12.2"
+		"svelte-motion": "^0.12.2",
+		"svelte-vertical-timeline": "^2.0.0"
 	}
 }
