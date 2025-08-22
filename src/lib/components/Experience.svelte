@@ -43,7 +43,7 @@
 					<div class="flex flex-wrap gap-2">
 						{#each experience.skills as skill}
 							<span
-    class="rounded bg-gray-100 px-2 py-1 text-sm text-gray-800 transition-colors duration-200 cursor-pointer hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+								class="cursor-pointer rounded bg-gray-100 px-2 py-1 text-sm text-gray-800 transition-colors duration-200 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
 							>
 								{skill}
 							</span>
