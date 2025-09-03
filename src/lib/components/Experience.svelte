@@ -17,8 +17,8 @@
 			title: 'DevOps Engineer',
 			company: 'Royal Bank of Canada, Global Asset Management (RBC GAM)',
 			logo: rbc,
-			duration: 'May 2025 - Aug 2025',
-			description: 'Managing and Optimizing CI/CD pipelines using GitHub Actions.',
+			duration: 'Apr 2025 - Aug 2025',
+			description: 'Developing and optimizing CI/CD pipelines using GitHub Actions.',
 			skills: ['GitHub Actions', 'Kubernetes', 'OpenShift', 'Bash', 'Docker']
 		},
 		{
@@ -27,7 +27,7 @@
 			logo: rbc,
 			duration: 'Sept 2024 - Dec 2024',
 			description:
-				'Migrated application pipelines from Jenkins to GitHub Actions and updated front-end applications.',
+				'Migrated application pipelines from Jenkins to GitHub Actions and upgraded Angular applications.',
 			skills: ['GitHub Actions', 'Jenkins', 'Angular', 'Spring Boot']
 		},
 		{
