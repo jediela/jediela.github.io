@@ -19,8 +19,8 @@
 			company: 'OpenTable',
 			logo: opentable,
 			duration: 'May 2026 - Aug 2026',
-			description: 'Summer 2026 ☀️'
-			// skills: []
+			description: 'Developed multiple features for the OpenTable for Restaurants and Groups platform.',
+			skills: ['React', 'Spring Boot', 'TypeScript', 'Java']
 		},
 		{
 			title: 'DevOps Engineer',
