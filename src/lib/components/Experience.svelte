@@ -10,16 +10,25 @@
 	} from 'svelte-vertical-timeline';
 
 	import rbc from '../images/rbc.jpg';
+	import opentable from '../images/opentable.jpg';
 	import mto from '../images/mto.jpeg';
 
 	let experiences = [
+		{
+			title: 'Software Engineer',
+			company: 'OpenTable',
+			logo: opentable,
+			duration: 'May 2026 - Aug 2026',
+			description: 'Developed multiple features for the OpenTable for Restaurants and Groups platform.',
+			skills: ['React', 'Spring Boot', 'TypeScript', 'Java']
+		},
 		{
 			title: 'DevOps Engineer',
 			company: 'Royal Bank of Canada, Global Asset Management (RBC GAM)',
 			logo: rbc,
 			duration: 'Apr 2025 - Aug 2025',
 			description: 'Developing and optimizing CI/CD pipelines using GitHub Actions.',
-			skills: ['GitHub Actions', 'Kubernetes', 'OpenShift', 'Bash', 'Docker']
+			skills: ['GitHub Actions', 'Kubernetes', 'OpenShift', 'Docker']
 		},
 		{
 			title: 'Software Developer',
