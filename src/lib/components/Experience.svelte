@@ -27,7 +27,7 @@
 			company: 'Royal Bank of Canada, Global Asset Management (RBC GAM)',
 			logo: rbc,
 			duration: 'Apr 2025 - Aug 2025',
-			description: 'Developing and optimizing CI/CD pipelines using GitHub Actions.',
+			description: 'Developed and optimized CI/CD pipelines using GitHub Actions.',
 			skills: ['GitHub Actions', 'Kubernetes', 'OpenShift', 'Docker']
 		},
 		{
